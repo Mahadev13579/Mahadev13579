@@ -21,7 +21,7 @@ while True:
         d['Fees']=int(input("Fees of the student"))
         l.append(d)
     elif n==2:
-        print("Name","ID","Address","No.",sep='\t\t')
+        print("Name","Rno","Class","Fees",sep='\t\t')
         for i in l:
             print(i['Name'],i['Rno'],i['Class'],i['Fees'],sep='\t\t')
     elif n==3:
@@ -122,13 +122,16 @@ while True:
                 if l[i]['Fees']==c:
                     b=i
                     e=1
+        if e!=0:
             l.pop(b)
             print("Record is deleted")
-        if e==0:
+        elif e==0:
              print("No Record Found")
     elif n==0:
         print("Thankyou")
         break
+    else:
+        print("Wrong Choice")
     d=input("DO YOU WANT TO CONTINUE TYPE Y or N")
     if d in 'nN':
         print("Thankyou")
