@@ -1,0 +1,139 @@
+l=[]
+l1=[]
+n=int(input("enter the no. of records you want"))
+for i in range (n):
+    d={}
+    d['Name']=input("Name of Student")
+    d['Rno']=int(input("Roll no. of students"))
+    d['Class']=int(input("Class of student (integer type)"))
+    d['Fees']=int(input("Fees of the student"))
+    l.append(d)
+    
+while True:
+    print("        Student          ")
+    print("0.exit\n1.add record\n2.show all record\n3.update record\n4.search record\n5.delete record")
+    n=int(input("Enter your choice"))
+    if n==1:
+        d={}
+        d['Name']=input("Name of Student")
+        d['Rno']=int(input("Roll no. of students"))
+        d['Class']=int(input("Class of student (integer type)"))
+        d['Fees']=int(input("Fees of the student"))
+        l.append(d)
+    elif n==2:
+        print("Name","ID","Address","No.",sep='\t\t')
+        for i in l:
+            print(i['Name'],i['Rno'],i['Class'],i['Fees'],sep='\t\t')
+    elif n==3:
+        q=0
+        s=print("1.Update name\n2.Update roll no.\n3.Update class\n4.Update fees")
+        a=int(input("Enter your choice"))
+        if a==1:
+            c=input("Enter old name")   
+            for i in l:
+                if i['Name']==c:
+                    i['Name']=input("Enter new name")
+                    q=1
+        elif a==2:
+            c=int(input("Enter old roll no."))
+            for i in l:
+                if i['Rno']==c:
+                    i['Rno']=int(input("Enter new roll no."))
+                    q=1
+        elif a==3:
+            c=int(input("Enter old class"))
+            for i in l:
+                if i['Class']==c:
+                    i['Class']=int(input("Enter new class"))
+                    q=1
+        elif a==4:
+            c=int(input("Enter old fees"))
+            for i in l:
+                if i['Fees']==c:
+                    i['Fees']=int(input("Enter new fees"))
+                    q=1
+        else:
+            break
+        if q==0:
+            print("No Record found")
+    elif n==4:
+        w=0
+        s=print("1.Search by name\n2.Search by roll no.\n3.Search by class\n4.Search by fees")
+        a=int(input("Enter your choice"))
+        if a==1:
+            c=input("Enter name")
+            for i in l:
+                if i['Name']==c:
+                    w=1
+                    print(i)
+        elif a==2:
+            c=int(input("Enter roll no."))
+            for i in l:
+                if i['Rno']==c:
+                    w=1
+                    print(i)
+        elif a==3:
+            c=int(input("Enter class"))
+            for i in l:
+                if i['Class']==c:
+                    w=1
+                    print(i)
+        elif a==4:
+            c=int(input("Enter fees"))
+            for i in l:
+                if i['Fees']==c:
+                    w=1
+                    print(i)
+        else:
+            break
+        if w==0:
+            print("No Record found")
+    elif n==5:
+        e=0
+        s=print("1.delete by name\n2.delete by roll no.\n3.delete by class\n4.delete by fees")
+        a=int(input("Enter your choice"))
+        if a==1:
+            c=input("Enter name of student")
+            for i in range(len(l)):
+                if l[i]['Name']==c:
+                    e=1
+                    b=i
+            del l[b]
+            print("Record is deleted")
+        elif a==2:
+            c=int(input("Enter roll no. of student"))
+            for i in range(len(l)):
+                if l[i]['Rno']==c:
+                    b=i
+                    e=1
+            l.pop(b)
+            print("Record is deleted")
+        elif a==3:
+            c=int(input("Enter class of student"))
+            for i in range(len(l)):
+                if l[i]['Class']==c:
+                    b=i
+                    e=1
+            l.pop(b)
+            print("Record is deleted")
+        elif a==4:
+            c=int(input("Enter fees of student"))
+            for i in range(len(l)):
+                if l[i]['Fees']==c:
+                    b=i
+                    e=1
+            l.pop(b)
+            print("Record is deleted")
+        if e==0:
+             print("No Record Found")
+    elif n==0:
+        print("Thankyou")
+        break
+    d=input("DO YOU WANT TO CONTINUE TYPE Y or N")
+    if d in 'nN':
+        print("Thankyou")
+        break
+    elif d in 'yY':
+        continue
+    else:
+        print("Wrong Choice")
